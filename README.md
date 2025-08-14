@@ -70,13 +70,16 @@ Future<List<Account>> getAccounts();
 | Desktop View                                   | Mobile View                                  |
 | ---------------------------------------------- | -------------------------------------------- |
 |  <img width="721" height="394" alt="Screenshot 2025-08-14 at 4 30 16 PM" src="https://github.com/user-attachments/assets/b9e5deb7-af35-4dc2-80ac-c4042f56e70e" />  | <img width="325" height="705" alt="Screenshot 2025-08-14 at 4 30 37 PM" src="https://github.com/user-attachments/assets/1e75b9f6-9906-4b11-81e8-deec4e1a30bd" />
- |
+ 
 
 ---
 
-## 🌐 Live Demo
+# Lucas Demo Project
 
-A live hosted version can be accessed here: **[Demo Link]([https://<your-demo-url>](https://androidsignal.github.io/lucas_demo_project/))**
+A Flutter web project deployed using **GitHub Pages**.
+
+## 🚀 Live Demo
+[View Project Here](https://androidsignal.github.io/lucas_demo_project/)
 
 ---
 
