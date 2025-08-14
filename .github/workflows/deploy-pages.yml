@@ -5,7 +5,6 @@ on:
     branches: ["main"]
   workflow_dispatch: {}
 
-# Required for GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -20,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Flutter
@@ -29,22 +28,30 @@ jobs:
           channel: stable
           cache: true
 
-      - name: Enable web, fetch packages
+      - name: Enable Flutter web & get dependencies
         run: |
-          flutter --version
           flutter config --enable-web
           flutter pub get
 
       - name: Derive repo name for base-href
         run: echo "REPO_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_ENV
 
-      - name: Build web
+      - name: Build Flutter web release
         run: |
-          # Use html renderer for smaller bundle on Pages
           flutter build web \
             --release \
             --web-renderer html \
             --base-href "/${{ env.REPO_NAME }}/"
+
+      - name: Add .nojekyll file to disable Jekyll
+        run: touch build/web/.nojekyll
+
+      - name: Add SPA 404.html fallback (optional)
+        run: cp build/web/index.html build/web/404.html
+
+      # Optional: Add custom domain
+      # - name: Add CNAME for custom domain
+      #   run: echo "example.com" > build/web/CNAME
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
