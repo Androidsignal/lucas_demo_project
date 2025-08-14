@@ -76,7 +76,7 @@ Future<List<Account>> getAccounts();
 
 ## 🌐 Live Demo
 
-A live hosted version can be accessed here: **[Demo Link](https://<your-demo-url>)**
+A live hosted version can be accessed here: **[Demo Link]([https://<your-demo-url>](https://androidsignal.github.io/lucas_demo_project/))**
 
 ---
 
