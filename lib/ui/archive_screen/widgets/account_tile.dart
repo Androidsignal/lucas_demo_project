@@ -95,6 +95,7 @@ class AccountTile extends StatelessWidget {
                   context: context,
                 ),
                 StepperBar(
+                  numPhases: accountModel.numPhases ?? 0,
                   currentPhase: accountModel.currentPhase ?? 0,
                 ),
                 Container(

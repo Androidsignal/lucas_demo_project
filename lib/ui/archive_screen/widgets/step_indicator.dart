@@ -7,16 +7,29 @@ import '../../../themes/app_theme.dart';
 
 class StepperBar extends StatelessWidget {
   final int currentPhase;
-  const StepperBar({super.key, required this.currentPhase});
+  final int numPhases;
+  const StepperBar({super.key, required this.currentPhase, required this.numPhases});
 
   @override
   Widget build(BuildContext context) {
-    final steps = [
-      {"label": AppStrings.instance.evaluation1, "icon": "assets/ic_bar_chart.svg", "locked": false},
-      {"label": AppStrings.instance.evaluation2, "icon": "assets/ic_bar_chart.svg", "locked": false},
-      {"label": AppStrings.instance.masterAccount, "icon": "assets/lock_open_rounded.svg", "locked": true},
-    ];
-
+    if(numPhases==0) {
+      return Container(); // No steps to show
+    }
+    final steps = List.generate(numPhases, (index) {
+      if (index < numPhases - 1) {
+        return {
+          "label": AppStrings.instance.evaluation1, // or use a list of labels if needed
+          "icon": "assets/ic_bar_chart.svg",
+          "locked": false,
+        };
+      } else {
+        return {
+          "label": AppStrings.instance.masterAccount,
+          "icon": "assets/lock_open_rounded.svg",
+          "locked": true,
+        };
+      }
+    });
     return Container(
       decoration: BoxDecoration(
         color: Color.fromRGBO(255, 255, 255, 0.05),
@@ -99,20 +112,24 @@ class StepPill extends StatelessWidget {
 class _DottedLine extends StatelessWidget {
   final int index;
   final List<Color> gradientColors;
+  final double width; // Add width parameter
 
   const _DottedLine({
     required this.index,
     this.gradientColors = const [Colors.blue, Colors.purple],
+    this.width = 20, // Default width
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: (index == 0 || index == 6) ? 20 : 60,
-      height: 0.4,
-      margin: EdgeInsets.symmetric(horizontal: 1),
-      child: CustomPaint(
-        painter: _DottedLinePainter(gradientColors: gradientColors),
+    return Expanded(
+      child: Container(
+        width: width, // Use dynamic width
+        height: 0.4,
+        margin: EdgeInsets.symmetric(horizontal: 1),
+        child: CustomPaint(
+          painter: _DottedLinePainter(gradientColors: gradientColors),
+        ),
       ),
     );
   }
