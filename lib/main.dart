@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: ArchiveScreen.routeName,
       builder: (context, widget) => ResponsiveBreakpoints.builder(
         child: widget!,
+        
         breakpoints: [
           const Breakpoint(start: 0, end: 450, name: MOBILE),
           const Breakpoint(start: 451, end: 800, name: TABLET),
