@@ -65,37 +65,12 @@ Future<List<Account>> getAccounts();
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Flutter SDK (latest stable)
-* Dart SDK
-* Modern browser (Chrome recommended)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/<your-username>/<repo-name>.git
-
-# Navigate to the project folder
-cd <repo-name>
-
-# Install dependencies
-flutter pub get
-
-# Run the web app
-flutter run -d chrome
-```
-
----
-
 ## 📸 Screenshots
 
 | Desktop View                                   | Mobile View                                  |
 | ---------------------------------------------- | -------------------------------------------- |
-| ![Desktop Screenshot](screenshots/desktop.png) | ![Mobile Screenshot](screenshots/mobile.png) |
+|  <img width="721" height="394" alt="Screenshot 2025-08-14 at 4 30 16 PM" src="https://github.com/user-attachments/assets/b9e5deb7-af35-4dc2-80ac-c4042f56e70e" />  | <img width="325" height="705" alt="Screenshot 2025-08-14 at 4 30 37 PM" src="https://github.com/user-attachments/assets/1e75b9f6-9906-4b11-81e8-deec4e1a30bd" />
+ |
 
 ---
 
